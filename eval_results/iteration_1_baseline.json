@@ -1,0 +1,102 @@
+[
+  {
+    "question": "What enforcement action did the ACCC take against Webjet?",
+    "expected_relevance": "high",
+    "answer": "Webjet advertisement is misleading.",
+    "avg_retrieval_similarity": 0.571,
+    "max_retrieval_similarity": 0.669,
+    "bleu": 0.001,
+    "rouge_l": 0.167,
+    "faithfulness": 0.571
+  },
+  {
+    "question": "Has the ACCC fined any company for greenwashing?",
+    "expected_relevance": "high",
+    "answer": "Date 20 September 2022 Topics Advertising and promotions Compliance and enforcement Businesses need to be ready to substantiate any environmental or sustainability claims when marketing their goods and services.",
+    "avg_retrieval_similarity": 0.583,
+    "max_retrieval_similarity": 0.61,
+    "bleu": 0.009,
+    "rouge_l": 0.118,
+    "faithfulness": 0.594
+  },
+  {
+    "question": "What is misleading was/now pricing?",
+    "expected_relevance": "high",
+    "answer": "Australian Competition and Consumer Commission",
+    "avg_retrieval_similarity": 0.554,
+    "max_retrieval_similarity": 0.559,
+    "bleu": 0,
+    "rouge_l": 0.065,
+    "faithfulness": 0.532
+  },
+  {
+    "question": "What penalty did EnergyAustralia receive?",
+    "expected_relevance": "high",
+    "answer": "Collection of all USATODAY.com coverage of EnergyAustralia, including articles, videos, photos, and quotes.",
+    "avg_retrieval_similarity": 0.503,
+    "max_retrieval_similarity": 0.572,
+    "bleu": 0.013,
+    "rouge_l": 0.138,
+    "faithfulness": 0.425
+  },
+  {
+    "question": "Has the ACCC issued infringement notices for false advertising?",
+    "expected_relevance": "medium",
+    "answer": "yes",
+    "avg_retrieval_similarity": 0.685,
+    "max_retrieval_similarity": 0.689,
+    "bleu": 0,
+    "rouge_l": 0.095,
+    "faithfulness": 0.083
+  },
+  {
+    "question": "What is a court enforceable undertaking?",
+    "expected_relevance": "medium",
+    "answer": "The Australian Competition and Markets Authority (ACCA) has issued a series of directions to the Federal Court of Australia (FCC) in relation to the conduct of Get Qualified in relation to the VET FEE-HELP scheme.",
+    "avg_retrieval_similarity": 0.397,
+    "max_retrieval_similarity": 0.429,
+    "bleu": 0.008,
+    "rouge_l": 0.129,
+    "faithfulness": 0.624
+  },
+  {
+    "question": "What kind of conduct violates Australian Consumer Law?",
+    "expected_relevance": "medium",
+    "answer": "128/18 General enquiries Submit an online enquiry to ask a question or you can make a report",
+    "avg_retrieval_similarity": 0.675,
+    "max_retrieval_similarity": 0.686,
+    "bleu": 0.01,
+    "rouge_l": 0.108,
+    "faithfulness": 0.218
+  },
+  {
+    "question": "What is the best pizza recipe in Italy?",
+    "expected_relevance": "out_of_domain",
+    "answer": "infringement notice penalties is not an admission of a contravention of the ACL. The ACCC can issue an infringement notice under section 134A of the ACL where it has reasonable grounds to believe a person has contravened certain consumer protection laws",
+    "avg_retrieval_similarity": 0.248,
+    "max_retrieval_similarity": 0.325,
+    "bleu": "N/A",
+    "rouge_l": "N/A",
+    "faithfulness": 0.288
+  },
+  {
+    "question": "How do I train a dog to sit?",
+    "expected_relevance": "out_of_domain",
+    "answer": "Millell’s website.",
+    "avg_retrieval_similarity": 0.218,
+    "max_retrieval_similarity": 0.275,
+    "bleu": "N/A",
+    "rouge_l": "N/A",
+    "faithfulness": 0.112
+  },
+  {
+    "question": "What is the capital of France?",
+    "expected_relevance": "out_of_domain",
+    "answer": "The Australian Competition and Consumer Commission (ACCC) has issued two infringement notices for misleading claims made on the label of its products.",
+    "avg_retrieval_similarity": 0.096,
+    "max_retrieval_similarity": 0.121,
+    "bleu": "N/A",
+    "rouge_l": "N/A",
+    "faithfulness": 0.457
+  }
+]

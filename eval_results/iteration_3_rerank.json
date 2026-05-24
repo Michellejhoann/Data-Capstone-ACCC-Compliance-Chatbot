@@ -1,0 +1,92 @@
+[
+  {
+    "question": "What enforcement action did the ACCC take against Webjet?",
+    "expected_relevance": "high",
+    "answer": "Date 28 July 2025 Topics: Advertising and promotions Compliance and enforcement Pricing Travel and airports",
+    "avg_retrieval_similarity": 0.557,
+    "bleu": 0.002,
+    "rouge_l": 0.069,
+    "faithfulness": 0.451
+  },
+  {
+    "question": "Has the ACCC fined any company for greenwashing?",
+    "expected_relevance": "high",
+    "answer": "Consumer trust and confidence in the market",
+    "avg_retrieval_similarity": 0.575,
+    "bleu": 0.0,
+    "rouge_l": 0.08,
+    "faithfulness": 0.421
+  },
+  {
+    "question": "What is misleading was/now pricing?",
+    "expected_relevance": "high",
+    "answer": "‘was/now’ pricing is not used to mislead consumers,” he said.",
+    "avg_retrieval_similarity": 0.529,
+    "bleu": 0.0,
+    "rouge_l": 0.156,
+    "faithfulness": 0.542
+  },
+  {
+    "question": "What penalty did EnergyAustralia receive?",
+    "expected_relevance": "high",
+    "answer": "a new energy contract with certain customers in South Australia",
+    "avg_retrieval_similarity": 0.49,
+    "bleu": 0.001,
+    "rouge_l": 0.075,
+    "faithfulness": 0.636
+  },
+  {
+    "question": "Has the ACCC issued infringement notices for false advertising?",
+    "expected_relevance": "medium",
+    "answer": "Report to help us understand where there are problems.",
+    "avg_retrieval_similarity": 0.656,
+    "bleu": 0.0,
+    "rouge_l": 0.037,
+    "faithfulness": 0.176
+  },
+  {
+    "question": "What is a court enforceable undertaking?",
+    "expected_relevance": "medium",
+    "answer": "Wisdom Property Group Pty Ltd to remove unfair contract terms from its standard home building contracts.",
+    "avg_retrieval_similarity": 0.374,
+    "bleu": 0.001,
+    "rouge_l": 0.029,
+    "faithfulness": 0.362
+  },
+  {
+    "question": "What kind of conduct violates Australian Consumer Law?",
+    "expected_relevance": "medium",
+    "answer": "Answer: door-to-door marketing",
+    "avg_retrieval_similarity": 0.645,
+    "bleu": 0,
+    "rouge_l": 0.0,
+    "faithfulness": 0.439
+  },
+  {
+    "question": "What is the best pizza recipe in Italy?",
+    "expected_relevance": "out_of_domain",
+    "answer": "The Australian Competition and Consumer Commission has accepted court enforceable undertakings from ALDI Foods Pty Limited (Aldi) and Monde Nissin (Australia) P",
+    "avg_retrieval_similarity": 0.191,
+    "bleu": "N/A",
+    "rouge_l": "N/A",
+    "faithfulness": 0.487
+  },
+  {
+    "question": "How do I train a dog to sit?",
+    "expected_relevance": "out_of_domain",
+    "answer": "'truth in advertising' approach to the labelling of pet food and a consumer education publicity program.\"",
+    "avg_retrieval_similarity": 0.184,
+    "bleu": "N/A",
+    "rouge_l": "N/A",
+    "faithfulness": 0.679
+  },
+  {
+    "question": "What is the capital of France?",
+    "expected_relevance": "out_of_domain",
+    "answer": "Universal Pharmaceuticals Pty Ltd to pay $26 million in fines and costs.",
+    "avg_retrieval_similarity": 0.062,
+    "bleu": "N/A",
+    "rouge_l": "N/A",
+    "faithfulness": 0.396
+  }
+]
