@@ -71,20 +71,21 @@ Cleaning removes PDF markers, fixes smart quotes, drops orphan headers from the 
 ## Evaluation
 
 ```
-python evaluate.py
+python evaluate_iter1.py
+python evaluate_iter2.py
+python detect_hallucinations.py
 ```
 
-Runs 10 test questions (7 about ACCC stuff, 3 unrelated like "what is the capital of France") and computes BERTScore, retrieval similarity, and faithfulness.
+Each script runs the test set, prints the metrics summary, and writes the detailed results to `eval_results/`.
 
-### Results
+### Iterations
 
-I went through three iterations:
+The system went through two iterations:
 
-- Iteration 1: flan-t5-base, no re-ranking. Baseline.
-- Iteration 2: upgraded to flan-t5-large. Better narrative answers but harder for the metrics.
-- Iteration 3: added the cross-encoder re-ranker. Final version.
+- **Iteration 1** (`evaluate_iter1.py`): flan-t5-base, no re-ranking. Baseline.
+- **Iteration 2** (`evaluate_iter2.py`): flan-t5-large + cross-encoder re-ranking + BERTScore. Final version.
 
-Final numbers from iteration 3:
+### Results (Iteration 2)
 
 - BERTScore F1: 0.833
 - Faithfulness (cosine between answer and retrieved chunks): 0.432
@@ -92,26 +93,33 @@ Final numbers from iteration 3:
 - Retrieval similarity out-of-domain: 0.147
 - Domain gap: 0.400
 
-Earlier iterations used BLEU and ROUGE-L. Both stayed below 0.12 in every iteration. The issue is that flan-t5-large paraphrases instead of copying, and n-gram metrics don't like that. BERTScore (Zhang et al. 2020) uses contextual embeddings so it picks up on semantic similarity instead of exact word matches, which is what you actually want for a generative model.
+Both iterations also report BLEU and ROUGE-L, but they stayed below 0.12 in every run. The issue is that flan-t5-large paraphrases instead of copying, and n-gram metrics don't like that. BERTScore (Zhang et al. 2020) uses contextual embeddings so it picks up on semantic similarity instead of exact word matches, which is what you actually want for a generative model.
 
-I also manually checked 20 additional queries and got zero hallucinated case citations.
+### Hallucination audit
+
+`detect_hallucinations.py` runs an additional 20-query audit using corpus-grounded entity verification, the approach described in QuCo-RAG (2024) and HalluGraph (2025). Each answer is parsed for named entities, and each entity is checked against the full corpus. Results: 19/20 queries clean, 1 entity flagged ("Informal Merger Act"), giving a 5.9% entity-level hallucination rate. For comparison, Magesh et al. (2025) measured 17 to 33% on commercial legal AI tools and 43% on general-purpose GPT-4.
 
 ## Project structure
 
 ```
 .
-├── app.py                 streamlit chatbot
-├── scraper.py             scrapes accc.gov.au media releases
-├── clean_corpus.py        cleans the scraped data
-├── build_vectordb.py      builds the chromadb index
-├── evaluate.py            runs the evaluation
+├── app.py                       streamlit chatbot
+├── scraper.py                   scrapes accc.gov.au media releases
+├── clean_corpus.py              cleans the scraped data
+├── build_vectordb.py            builds the chromadb index
+├── evaluate_iter1.py            iteration 1 baseline (flan-t5-base)
+├── evaluate_iter2.py            iteration 2 final (flan-t5-large + re-rank + BERTScore)
+├── detect_hallucinations.py     hallucination audit
 ├── requirements.txt
 ├── README.md
 ├── .gitignore
 ├── data/
-│   ├── accc_raw.json              raw output from the scraper
-│   └── accc_corpus_clean.json     after running clean_corpus.py
-└── eval_results/          json files with the metrics from each iteration
+│   ├── accc_raw.json                       raw scraper output
+│   └── accc_corpus_clean.json              cleaned corpus
+└── eval_results/
+    ├── iteration_1_results.json
+    ├── iteration_2_results.json
+    └── hallucination_audit.json
 ```
 
 ## Known limitations

@@ -23,7 +23,7 @@ HEADERS = {
                   "Chrome/120.0.0.0 Safari/537.36",
 }
 
-MIN_YEAR = 2020
+MIN_YEAR = 2010
 MAX_LIST_PAGES = 400
 
 # keywords that indicate the release is about enforcement / consumer law

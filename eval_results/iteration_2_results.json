@@ -1,89 +1,109 @@
 {
-  "bertscore_precision": 0.8518741726875305,
-  "bertscore_recall": 0.8157471418380737,
-  "bertscore_f1": 0.8332951664924622,
-  "retrieval_in_domain": 0.5465714285714286,
-  "faithfulness": 0.4324285714285715,
+  "bertscore_precision": 0.8402255773544312,
+  "bertscore_recall": 0.8224861025810242,
+  "bertscore_f1": 0.8311337232589722,
+  "retrieval_in_domain": 0.4315714285714286,
+  "faithfulness": 0.5964285714285714,
   "results": [
     {
       "question": "What enforcement action did the ACCC take against Webjet?",
       "expected_answer": "The ACCC took Federal Court action against Webjet for making misleading pricing representations to consumers. The Court ordered Webjet to pay pecuniary penalties for breaching the Australian Consumer Law by failing to disclose the full price of bookings, including compulsory fees and charges.",
       "expected_relevance": "high",
-      "answer": "Date 28 July 2025 Topics: Advertising and promotions Compliance and enforcement Pricing Travel and airports",
-      "avg_retrieval_similarity": 0.557,
-      "faithfulness": 0.451
+      "answer": "a local Melbourne store which is closing down",
+      "avg_retrieval_similarity": 0.435,
+      "bleu": 0,
+      "rouge_l": 0.0,
+      "faithfulness": 0.498
     },
     {
       "question": "Has the ACCC fined any company for greenwashing?",
       "expected_answer": "Yes, the ACCC has taken multiple enforcement actions against companies for greenwashing and misleading environmental claims. These actions target false or unsubstantiated representations about sustainability, recyclability, and green credentials, with the ACCC issuing internet sweeps and pursuing penalties under the Australian Consumer Law.",
       "expected_relevance": "high",
-      "answer": "Consumer trust and confidence in the market",
-      "avg_retrieval_similarity": 0.575,
-      "faithfulness": 0.421
+      "answer": "MOO's yoghurt products",
+      "avg_retrieval_similarity": 0.393,
+      "bleu": 0,
+      "rouge_l": 0.0,
+      "faithfulness": 0.612
     },
     {
       "question": "What is misleading was/now pricing?",
       "expected_answer": "Misleading was/now pricing occurs when a business advertises a comparison between a previous price and a current price, but the previous price was not genuinely the regular selling price. This practice creates a false impression of savings or discount, breaching the Australian Consumer Law and resulting in ACCC enforcement action and penalties.",
       "expected_relevance": "high",
-      "answer": "‘was/now’ pricing is not used to mislead consumers,” he said.",
-      "avg_retrieval_similarity": 0.529,
-      "faithfulness": 0.542
+      "answer": "On 3 July 2025 the Australian Competition and Consumer Commission (ACCC) issued a Public Warning Notice to warn consumers about the alleged conduct by the operator of the websitesophie-claire.com.",
+      "avg_retrieval_similarity": 0.334,
+      "bleu": 0.009,
+      "rouge_l": 0.143,
+      "faithfulness": 0.638
     },
     {
       "question": "What penalty did EnergyAustralia receive?",
       "expected_answer": "EnergyAustralia was ordered by the Federal Court to pay pecuniary penalties for misleading consumers about energy plans, discount claims, and pricing representations. The ACCC took action over conduct that breached the Australian Consumer Law, including misleading discount-off-what representations in energy promotions.",
       "expected_relevance": "high",
-      "answer": "a new energy contract with certain customers in South Australia",
-      "avg_retrieval_similarity": 0.49,
-      "faithfulness": 0.636
+      "answer": "Australian Energy Market Operator Limited (AEMO) sought authorisation to enable it and its related bodies corporate to discuss, enter into or give effect to any contract, arrangement or understanding between them, or engage in any conduct, related to planning for and/or minimising any disruptions to electricity supply.",
+      "avg_retrieval_similarity": 0.375,
+      "bleu": 0.006,
+      "rouge_l": 0.066,
+      "faithfulness": 0.745
     },
     {
       "question": "Has the ACCC issued infringement notices for false advertising?",
       "expected_answer": "Yes, the ACCC regularly issues infringement notices to businesses for false or misleading advertising claims under the Australian Consumer Law. These notices apply to a wide range of conduct including misleading product claims, false representations about country of origin, and unsubstantiated health or environmental claims.",
       "expected_relevance": "medium",
-      "answer": "Report to help us understand where there are problems.",
-      "avg_retrieval_similarity": 0.656,
-      "faithfulness": 0.176
+      "answer": "Summary: On 3 July 2025 the Australian Competition and Consumer Commission (ACCC) issued a Public Warning Notice to warn consumers about the alleged conduct by the operator of the websiteeverly-melbourne.com.",
+      "avg_retrieval_similarity": 0.52,
+      "bleu": 0.012,
+      "rouge_l": 0.208,
+      "faithfulness": 0.673
     },
     {
       "question": "What is a court enforceable undertaking?",
       "expected_answer": "A court enforceable undertaking under section 87B of the Competition and Consumer Act is a written agreement where a company commits to corrective actions, compliance programs, and consumer remediation to resolve ACCC concerns without proceeding to a contested trial. The undertaking is registered on a public register and enforceable by the courts.",
       "expected_relevance": "medium",
-      "answer": "Wisdom Property Group Pty Ltd to remove unfair contract terms from its standard home building contracts.",
-      "avg_retrieval_similarity": 0.374,
-      "faithfulness": 0.362
+      "answer": "Attachments Undertaking end date",
+      "avg_retrieval_similarity": 0.384,
+      "bleu": 0.0,
+      "rouge_l": 0.036,
+      "faithfulness": 0.266
     },
     {
       "question": "What kind of conduct violates Australian Consumer Law?",
       "expected_answer": "Conduct that misleads or deceives consumers, makes false or misleading representations about goods or services, engages in unconscionable behavior, breaches consumer guarantees, or uses bait advertising violates the Australian Consumer Law. The ACCC enforces these provisions through court action, infringement notices, and enforceable undertakings.",
       "expected_relevance": "medium",
-      "answer": "Answer: door-to-door marketing",
-      "avg_retrieval_similarity": 0.645,
-      "faithfulness": 0.439
+      "answer": "Summary: The ACCC has reasonable grounds to suspect that the operator of the websiteeverly-melbourne.comhas engaged in conduct that contravenes the Australian Consumer Law.",
+      "avg_retrieval_similarity": 0.58,
+      "bleu": 0.058,
+      "rouge_l": 0.203,
+      "faithfulness": 0.743
     },
     {
       "question": "What is the best pizza recipe in Italy?",
       "expected_answer": "OUT_OF_DOMAIN",
       "expected_relevance": "out_of_domain",
-      "answer": "The Australian Competition and Consumer Commission has accepted court enforceable undertakings from ALDI Foods Pty Limited (Aldi) and Monde Nissin (Australia) P",
-      "avg_retrieval_similarity": 0.191,
-      "faithfulness": 0.487
+      "answer": "Bega - Fonterra - Market Inquiries Letter 1 Aug 2025",
+      "avg_retrieval_similarity": 0.16,
+      "bleu": "N/A",
+      "rouge_l": "N/A",
+      "faithfulness": 0.559
     },
     {
       "question": "How do I train a dog to sit?",
       "expected_answer": "OUT_OF_DOMAIN",
       "expected_relevance": "out_of_domain",
-      "answer": "'truth in advertising' approach to the labelling of pet food and a consumer education publicity program.\"",
-      "avg_retrieval_similarity": 0.184,
-      "faithfulness": 0.679
+      "answer": "Woolworths Group Limited proposes to acquire a 55% interest in PETstock Pty Ltd (Petstock)",
+      "avg_retrieval_similarity": 0.193,
+      "bleu": "N/A",
+      "rouge_l": "N/A",
+      "faithfulness": 0.746
     },
     {
       "question": "What is the capital of France?",
       "expected_answer": "OUT_OF_DOMAIN",
       "expected_relevance": "out_of_domain",
-      "answer": "Australian-sourced.",
-      "avg_retrieval_similarity": 0.065,
-      "faithfulness": 0.467
+      "answer": "A consortium led by Brookfield Renewable Holdings SAS (Brookfield BidCo) proposes to acquire Neoen SA (Neoen) (theProposed Acquisition).",
+      "avg_retrieval_similarity": 0.138,
+      "bleu": "N/A",
+      "rouge_l": "N/A",
+      "faithfulness": 0.764
     }
   ]
 }

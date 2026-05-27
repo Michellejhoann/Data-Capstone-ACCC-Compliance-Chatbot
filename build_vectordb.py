@@ -5,7 +5,7 @@ from pathlib import Path
 import chromadb
 from sentence_transformers import SentenceTransformer
 
-CORPUS_PATH = "accc_corpus_clean.json"
+CORPUS_PATH = "data/accc_corpus_clean.json"
 VECTORDB_PATH = "./accc_vectordb"
 COLLECTION_NAME = "accc_cases"
 EMBED_MODEL = "all-MiniLM-L6-v2"

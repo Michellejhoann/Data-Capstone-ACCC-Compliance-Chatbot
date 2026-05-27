@@ -4,8 +4,8 @@ import unicodedata
 from datetime import datetime
 from collections import Counter
 
-INPUT_PATH = "ACCC_Corpus.json"
-OUTPUT_PATH = "accc_corpus_clean.json"
+INPUT_PATH = "data/accc_raw.json"
+OUTPUT_PATH = "data/accc_corpus_clean.json"
 CURRENT_YEAR = datetime.now().year
 
 

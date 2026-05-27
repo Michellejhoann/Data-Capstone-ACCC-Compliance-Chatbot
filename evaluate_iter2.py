@@ -2,6 +2,9 @@ import json
 import warnings
 warnings.filterwarnings("ignore")
 
+import nltk
+from nltk.translate.bleu_score import sentence_bleu, SmoothingFunction
+from rouge_score import rouge_scorer
 from sentence_transformers import SentenceTransformer, CrossEncoder
 import chromadb
 from transformers import T5ForConditionalGeneration, T5Tokenizer
@@ -9,6 +12,11 @@ import torch
 from sklearn.metrics.pairwise import cosine_similarity
 import numpy as np
 from bert_score import score as bertscore
+
+try:
+    nltk.data.find('tokenizers/punkt')
+except LookupError:
+    nltk.download('punkt', quiet=True)
 
 CHROMA_PATH = "./accc_vectordb"
 COLLECTION_NAME = "accc_cases"
@@ -27,7 +35,7 @@ client = chromadb.PersistentClient(path=CHROMA_PATH)
 collection = client.get_collection(name=COLLECTION_NAME)
 print("Models loaded.\n")
 
-# 7 in-domain + 3 out-of-domain. OOD ones should get low retrieval similarity.
+# 7 in-domain + 3 out-of-domain
 TEST_QUESTIONS = [
     {"question": "What enforcement action did the ACCC take against Webjet?", "expected_answer": "The ACCC took Federal Court action against Webjet for making misleading pricing representations to consumers. The Court ordered Webjet to pay pecuniary penalties for breaching the Australian Consumer Law by failing to disclose the full price of bookings, including compulsory fees and charges.", "expected_relevance": "high"},
     {"question": "Has the ACCC fined any company for greenwashing?", "expected_answer": "Yes, the ACCC has taken multiple enforcement actions against companies for greenwashing and misleading environmental claims. These actions target false or unsubstantiated representations about sustainability, recyclability, and green credentials, with the ACCC issuing internet sweeps and pursuing penalties under the Australian Consumer Law.", "expected_relevance": "high"},
@@ -43,10 +51,12 @@ TEST_QUESTIONS = [
 
 
 def retrieve_and_rerank(query):
+    # stage 1: bi-encoder retrieves top 20
     query_emb = embedder.encode(query).tolist()
     results = collection.query(query_embeddings=[query_emb], n_results=INITIAL_K)
     docs = results["documents"][0]
     dists = results["distances"][0]
+    # stage 2: cross-encoder re-ranks to top 4
     pairs = [(query, doc) for doc in docs]
     rerank_scores = reranker.predict(pairs)
     scored = sorted(zip(docs, dists, rerank_scores), key=lambda x: x[2], reverse=True)[:FINAL_K]
@@ -60,12 +70,35 @@ def generate_answer(query, chunks):
     prompt = f"Answer based on this context:\n{context}\n\nQuestion: {query}\n\nAnswer:"
     inputs = tokenizer(prompt, return_tensors="pt", max_length=1024, truncation=True)
     with torch.no_grad():
-        outputs = llm.generate(**inputs, max_length=200, num_beams=6, length_penalty=1.5, no_repeat_ngram_size=3, early_stopping=True)
+        outputs = llm.generate(
+            **inputs,
+            max_length=200,
+            num_beams=6,
+            length_penalty=1.5,
+            no_repeat_ngram_size=3,
+            early_stopping=True,
+        )
     return tokenizer.decode(outputs[0], skip_special_tokens=True)
 
 
+def calculate_bleu(reference, candidate):
+    if not candidate or not reference:
+        return 0.0
+    ref_tokens = [reference.lower().split()]
+    cand_tokens = candidate.lower().split()
+    smoothie = SmoothingFunction().method1
+    return sentence_bleu(ref_tokens, cand_tokens, smoothing_function=smoothie)
+
+
+def calculate_rouge_l(reference, candidate):
+    if not candidate or not reference:
+        return 0.0
+    scorer = rouge_scorer.RougeScorer(['rougeL'], use_stemmer=True)
+    scores = scorer.score(reference, candidate)
+    return scores['rougeL'].fmeasure
+
+
 def calculate_faithfulness(answer, chunks):
-    # max cosine similarity between answer and retrieved chunks
     if not answer.strip():
         return 0.0
     answer_emb = embedder.encode([answer])
@@ -74,7 +107,7 @@ def calculate_faithfulness(answer, chunks):
     return float(np.max(similarities))
 
 
-print("Running evaluation with BERTScore (semantic similarity)")
+print("Iteration 2 evaluation (flan-t5-large + cross-encoder re-ranking + BERTScore)")
 print(f"Test set: {len(TEST_QUESTIONS)} questions\n")
 
 results = []
@@ -83,19 +116,29 @@ for i, item in enumerate(TEST_QUESTIONS, 1):
     chunks, similarities = retrieve_and_rerank(item['question'])
     avg_retrieval_sim = np.mean(similarities)
     answer = generate_answer(item['question'], chunks)
+
+    if item['expected_answer'] != "OUT_OF_DOMAIN":
+        bleu = calculate_bleu(item['expected_answer'], answer)
+        rouge_l = calculate_rouge_l(item['expected_answer'], answer)
+    else:
+        bleu, rouge_l = None, None
+
     faithfulness = calculate_faithfulness(answer, chunks)
+
     results.append({
         "question": item['question'],
         "expected_answer": item['expected_answer'],
         "expected_relevance": item['expected_relevance'],
         "answer": answer,
         "avg_retrieval_similarity": round(avg_retrieval_sim, 3),
+        "bleu": round(bleu, 3) if bleu is not None else "N/A",
+        "rouge_l": round(rouge_l, 3) if rouge_l is not None else "N/A",
         "faithfulness": round(faithfulness, 3),
     })
-    print(f"   retrieval={avg_retrieval_sim:.3f} faithfulness={faithfulness:.3f}")
-    print(f"   answer: {answer[:100]}...\n")
+    print(f"   retrieval={avg_retrieval_sim:.3f} faithfulness={faithfulness:.3f}\n")
 
-print("\nComputing BERTScore...")
+# compute BERTScore
+print("\nComputing BERTScore (semantic similarity)...")
 in_domain = [r for r in results if r['expected_relevance'] != 'out_of_domain']
 candidates = [r['answer'] for r in in_domain]
 references = [r['expected_answer'] for r in in_domain]
@@ -104,13 +147,17 @@ bert_p = float(P.mean())
 bert_r = float(R.mean())
 bert_f1 = float(F1.mean())
 
-print("\nSummary metrics")
+print("\nSummary metrics (Iteration 2: flan-t5-large + re-ranking + BERTScore)")
 print("-" * 50)
 
+avg_bleu = np.mean([r['bleu'] for r in in_domain if r['bleu'] != "N/A"])
+avg_rouge = np.mean([r['rouge_l'] for r in in_domain if r['rouge_l'] != "N/A"])
 avg_retrieval = np.mean([r['avg_retrieval_similarity'] for r in in_domain])
 avg_faithful = np.mean([r['faithfulness'] for r in in_domain])
 
 print(f"\nIn-domain (n={len(in_domain)}):")
+print(f"  BLEU:                 {avg_bleu:.3f}")
+print(f"  ROUGE-L:              {avg_rouge:.3f}")
 print(f"  BERTScore Precision:  {bert_p:.3f}")
 print(f"  BERTScore Recall:     {bert_r:.3f}")
 print(f"  BERTScore F1:         {bert_f1:.3f}")
@@ -124,7 +171,7 @@ if ood:
     print(f"  Retrieval similarity: {avg_retrieval_ood:.3f}")
     print(f"\nDomain gap: {avg_retrieval - avg_retrieval_ood:.3f}")
 
-with open("evaluation_results.json", 'w', encoding='utf-8') as f:
+with open("eval_results/iteration_2_results.json", 'w', encoding='utf-8') as f:
     json.dump({
         "bertscore_precision": bert_p,
         "bertscore_recall": bert_r,
@@ -134,4 +181,4 @@ with open("evaluation_results.json", 'w', encoding='utf-8') as f:
         "results": results,
     }, f, indent=2, ensure_ascii=False)
 
-print("\nSaved to evaluation_results.json")
+print("\nSaved to eval_results/iteration_2_results.json")

@@ -1,0 +1,92 @@
+[
+  {
+    "question": "What enforcement action did the ACCC take against Webjet?",
+    "expected_relevance": "high",
+    "answer": "Double Bay store",
+    "avg_retrieval_similarity": 0.455,
+    "bleu": 0,
+    "rouge_l": 0.0,
+    "faithfulness": 0.417
+  },
+  {
+    "question": "Has the ACCC fined any company for greenwashing?",
+    "expected_relevance": "high",
+    "answer": "AA1000673-1",
+    "avg_retrieval_similarity": 0.403,
+    "bleu": 0,
+    "rouge_l": 0.0,
+    "faithfulness": 0.179
+  },
+  {
+    "question": "What is misleading was/now pricing?",
+    "expected_relevance": "high",
+    "answer": "MSA 4x4 Accessories Pty Ltd to resale its products below a particular discount percentage.",
+    "avg_retrieval_similarity": 0.419,
+    "bleu": 0.001,
+    "rouge_l": 0.06,
+    "faithfulness": 0.739
+  },
+  {
+    "question": "What penalty did EnergyAustralia receive?",
+    "expected_relevance": "high",
+    "answer": "ReAmped Energy has admitted to the above alleged conduct. In the undertaking, Diamond Energy will: update its price change notification templates and maintain those templates to ensure full compliance with the Code and Australian Consumer Law (ACL); implement measures to ensure compliance with the Code and sections 18 and 29 of the ACL; implement measures to improve its approval and authorisation processes for price change notifications ahead of the 2025/26 pricing review; and implement and continue to implement the compliance program for the term of the undertaking.",
+    "avg_retrieval_similarity": 0.395,
+    "bleu": 0.007,
+    "rouge_l": 0.107,
+    "faithfulness": 0.85
+  },
+  {
+    "question": "Has the ACCC issued infringement notices for false advertising?",
+    "expected_relevance": "medium",
+    "answer": "is a local Double Bay store which is closing down and/or having a 'closure sale', when this is not the case (in contravention of s 18 of the ACL); supplies higher quality clothing than it actually does (in contravention of s 29(1)(a) of the ACL); and supplies clothing originating from a local Double Bay store, when this is not the case (in contravention of s 29(1)(k) of the ACL).",
+    "avg_retrieval_similarity": 0.535,
+    "bleu": 0.004,
+    "rouge_l": 0.084,
+    "faithfulness": 0.742
+  },
+  {
+    "question": "What is a court enforceable undertaking?",
+    "expected_relevance": "medium",
+    "answer": "are incompatible with the Australian Competition and Consumer Commission's (ACCC) concerns.",
+    "avg_retrieval_similarity": 0.441,
+    "bleu": 0.002,
+    "rouge_l": 0.188,
+    "faithfulness": 0.548
+  },
+  {
+    "question": "What kind of conduct violates Australian Consumer Law?",
+    "expected_relevance": "medium",
+    "answer": "Optus Mobile Pty LimitedABN65 054 365 696ACN054 365 696ABN",
+    "avg_retrieval_similarity": 0.588,
+    "bleu": 0,
+    "rouge_l": 0.0,
+    "faithfulness": 0.468
+  },
+  {
+    "question": "What is the best pizza recipe in Italy?",
+    "expected_relevance": "out_of_domain",
+    "answer": "The following is a list of possible acquisitions by Woolworths.",
+    "avg_retrieval_similarity": 0.192,
+    "bleu": "N/A",
+    "rouge_l": "N/A",
+    "faithfulness": 0.472
+  },
+  {
+    "question": "How do I train a dog to sit?",
+    "expected_relevance": "out_of_domain",
+    "answer": "Undertaking end date Undertaking type Section",
+    "avg_retrieval_similarity": 0.195,
+    "bleu": "N/A",
+    "rouge_l": "N/A",
+    "faithfulness": 0.261
+  },
+  {
+    "question": "What is the capital of France?",
+    "expected_relevance": "out_of_domain",
+    "answer": "Summary: A consortium led by Brookfield Renewable Holdings SAS (Brookfield BidCo) proposes to acquire Neoen SA (Neoen)",
+    "avg_retrieval_similarity": 0.147,
+    "bleu": "N/A",
+    "rouge_l": "N/A",
+    "faithfulness": 0.782
+  }
+]

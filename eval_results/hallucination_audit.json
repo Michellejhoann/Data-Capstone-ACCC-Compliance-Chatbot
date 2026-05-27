@@ -1,0 +1,200 @@
+{
+  "method": "corpus-grounded entity verification (QuCo-RAG 2024, HalluGraph 2025)",
+  "total_queries": 20,
+  "total_entities": 17,
+  "total_hallucinations": 1,
+  "hallucination_rate_percent": 5.88,
+  "queries_with_zero_hallucinations": 19,
+  "results": [
+    {
+      "query": "What penalty did Webjet receive?",
+      "answer": "Grays online auction platform",
+      "entities_found": [],
+      "hallucinations": [],
+      "num_entities": 0,
+      "num_hallucinations": 0
+    },
+    {
+      "query": "What enforcement action did the ACCC take against Optus?",
+      "answer": "Anticompetitive Understandings",
+      "entities_found": [
+        "Anticompetitive Understandings"
+      ],
+      "hallucinations": [],
+      "num_entities": 1,
+      "num_hallucinations": 0
+    },
+    {
+      "query": "Has the ACCC fined any company for greenwashing?",
+      "answer": "MOO's yoghurt products",
+      "entities_found": [],
+      "hallucinations": [],
+      "num_entities": 0,
+      "num_hallucinations": 0
+    },
+    {
+      "query": "What is misleading was/now pricing?",
+      "answer": "On 3 July 2025 the Australian Competition and Consumer Commission (ACCC) issued a Public Warning Notice to warn consumers about the alleged conduct by the operator of the websitesophie-claire.com.",
+      "entities_found": [
+        "Consumer Commission",
+        "Public Warning Notice"
+      ],
+      "hallucinations": [],
+      "num_entities": 2,
+      "num_hallucinations": 0
+    },
+    {
+      "query": "What penalty did EnergyAustralia receive?",
+      "answer": "Australian Energy Market Operator Limited (AEMO) sought authorisation to enable it and its related bodies corporate to discuss, enter into or give effect to any contract, arrangement or understanding between them, or engage in any conduct, related to planning for and/or minimising any disruptions to electricity supply.",
+      "entities_found": [
+        "Australian Energy Market Operator Limited"
+      ],
+      "hallucinations": [],
+      "num_entities": 1,
+      "num_hallucinations": 0
+    },
+    {
+      "query": "Has the ACCC issued infringement notices for false advertising?",
+      "answer": "Summary: On 3 July 2025 the Australian Competition and Consumer Commission (ACCC) issued a Public Warning Notice to warn consumers about the alleged conduct by the operator of the websiteeverly-melbourne.com.",
+      "entities_found": [
+        "Consumer Commission",
+        "Public Warning Notice"
+      ],
+      "hallucinations": [],
+      "num_entities": 2,
+      "num_hallucinations": 0
+    },
+    {
+      "query": "What is a court enforceable undertaking?",
+      "answer": "Attachments Undertaking end date",
+      "entities_found": [
+        "Attachments Undertaking"
+      ],
+      "hallucinations": [],
+      "num_entities": 1,
+      "num_hallucinations": 0
+    },
+    {
+      "query": "What kind of conduct violates Australian Consumer Law?",
+      "answer": "Summary: The ACCC has reasonable grounds to suspect that the operator of the websiteeverly-melbourne.comhas engaged in conduct that contravenes the Australian Consumer Law.",
+      "entities_found": [],
+      "hallucinations": [],
+      "num_entities": 0,
+      "num_hallucinations": 0
+    },
+    {
+      "query": "What enforcement actions involve Telstra?",
+      "answer": "terminate any of its agreements with Google",
+      "entities_found": [],
+      "hallucinations": [],
+      "num_entities": 0,
+      "num_hallucinations": 0
+    },
+    {
+      "query": "What penalties has Volkswagen faced?",
+      "answer": "Attachments Undertaking end date",
+      "entities_found": [
+        "Attachments Undertaking"
+      ],
+      "hallucinations": [],
+      "num_entities": 1,
+      "num_hallucinations": 0
+    },
+    {
+      "query": "What does the ACCC do about drip pricing?",
+      "answer": "Informal Merger Act",
+      "entities_found": [
+        "Informal Merger Act"
+      ],
+      "hallucinations": [
+        "Informal Merger Act"
+      ],
+      "num_entities": 1,
+      "num_hallucinations": 1
+    },
+    {
+      "query": "What recent cases involve sustainability claims?",
+      "answer": "Koala LivingABN54 142 365 160",
+      "entities_found": [],
+      "hallucinations": [],
+      "num_entities": 0,
+      "num_hallucinations": 0
+    },
+    {
+      "query": "What infringement notices have been issued in 2024?",
+      "answer": "Dodo paid six infringement notices",
+      "entities_found": [],
+      "hallucinations": [],
+      "num_entities": 0,
+      "num_hallucinations": 0
+    },
+    {
+      "query": "What companies have received warning notices?",
+      "answer": "Summary: The operators of the websitesophie-claire.com.",
+      "entities_found": [],
+      "hallucinations": [],
+      "num_entities": 0,
+      "num_hallucinations": 0
+    },
+    {
+      "query": "How does the ACCC handle unconscionable conduct?",
+      "answer": "The Australian Competition and Consumer Commission extended the expiry date for the Unconditioned Local Loop Service declaration to 30 June 2024. The ACCC accepted a court enforceable undertaking from Aidacare Pty Ltd.",
+      "entities_found": [
+        "Aidacare Pty Ltd",
+        "Consumer Commission",
+        "Unconditioned Local Loop Service"
+      ],
+      "hallucinations": [],
+      "num_entities": 3,
+      "num_hallucinations": 0
+    },
+    {
+      "query": "What are recent court orders from the Federal Court?",
+      "answer": "consumers who held tickets for cancelled flights after Qantas had cancelled those flights",
+      "entities_found": [],
+      "hallucinations": [],
+      "num_entities": 0,
+      "num_hallucinations": 0
+    },
+    {
+      "query": "What is section 87B of the Competition and Consumer Act?",
+      "answer": "Summary: The Australian Competition and Consumer Commission has accepted a court enforceable undertaking from Aidacare Pty Ltd in relation to unfair contract terms and false or misleading representations about consumers' rights to remedies for faulty products.",
+      "entities_found": [
+        "Aidacare Pty Ltd",
+        "Consumer Commission"
+      ],
+      "hallucinations": [],
+      "num_entities": 2,
+      "num_hallucinations": 0
+    },
+    {
+      "query": "What enforcement actions involve retail companies?",
+      "answer": "The Australian Competition and Consumer Commission (ACCC) has accepted a court enforceable undertaking from MSA 4x4 Accessories Pty Ltd.",
+      "entities_found": [
+        "Accessories Pty Ltd",
+        "Consumer Commission"
+      ],
+      "hallucinations": [],
+      "num_entities": 2,
+      "num_hallucinations": 0
+    },
+    {
+      "query": "What is RRP misleading pricing?",
+      "answer": "Attachments Undertaking end date Undertaking type Section Name",
+      "entities_found": [
+        "Attachments Undertaking"
+      ],
+      "hallucinations": [],
+      "num_entities": 1,
+      "num_hallucinations": 0
+    },
+    {
+      "query": "What penalties has the ACCC imposed for false country of origin claims?",
+      "answer": "Undertaking were likely to contravene sections 23 and 29(1)(m) of the ACL.",
+      "entities_found": [],
+      "hallucinations": [],
+      "num_entities": 0,
+      "num_hallucinations": 0
+    }
+  ]
+}
